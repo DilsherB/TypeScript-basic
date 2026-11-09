@@ -88,10 +88,10 @@ Type aliases excel at defining custom union types and primitives, whereas interf
 
 <b>Question:</b> Why is passing `-1` into `.splice()` dangerous, and how do optional chaining and nullish coalescing protect runtime execution?
 <details><summary> <b>Answer:</b></summary>
-The -1 targets the end of an array in .splice(), leading to unintended data corruption. Optional chaining (?.) safely short-circuits when properties are undefined, and nullish coalescing (??) provides robust fallback defaults.
+The `-1` targets the end of an array in `.splice()`, leading to unintended data corruption. Optional chaining (`?.`) safely short-circuits when properties are undefined, and nullish coalescing (`??`) provides robust fallback defaults.
 </details>
 
-## Part 2: Practical Coding Challenge (updateStockLevel)
+## Part 2: Practical Coding Challenge (`updateStockLevel`)
 
 ### Scenario: Build a strictly typed inventory management service.
 <details> <summary><b>Solution: </b></summary>
