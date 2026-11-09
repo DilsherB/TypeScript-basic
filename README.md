@@ -79,23 +79,24 @@ function updateInventoryItem(
 
 ### Interfaces vs. Type Aliases & Utility Types
 
-<b>Question:</b> What is the key difference between an interface and a type alias, and how do utility types like Partial<T> and Omit<T, K> keep codebases DRY?
+<b>Question:</b> What is the key difference between an `interface` and a `type` alias, and how do utility types like `Partial<T>` and `Omit<T, K>` keep codebases DRY?
 <details><summary> <b>Answer:</b></summary>
 Type aliases excel at defining custom union types and primitives, whereas interfaces act as blueprints for object shapes and support declaration merging. Utility types prevent code duplication by dynamically transforming existing types rather than manually declaring duplicate interfaces for creation or update payloads.
 </details>
 
 ### Defensive Programming & Array Mutations
 
-<b>Question:</b> Why is passing -1 into .splice() dangerous, and how do optional chaining and nullish coalescing protect runtime execution?
+<b>Question:</b> Why is passing `-1` into `.splice()` dangerous, and how do optional chaining and nullish coalescing protect runtime execution?
 <details><summary> <b>Answer:</b></summary>
--1 targets the end of an array in .splice(), leading to unintended data corruption. Optional chaining (?.) safely short-circuits when properties are undefined, and nullish coalescing (??) provides robust fallback defaults.
+The -1 targets the end of an array in .splice(), leading to unintended data corruption. Optional chaining (?.) safely short-circuits when properties are undefined, and nullish coalescing (??) provides robust fallback defaults.
 </details>
 
 ## Part 2: Practical Coding Challenge (updateStockLevel)
 
 ### Scenario: Build a strictly typed inventory management service.
+<details> <summary><b>Solution: </b></summary>
+## TypeScript
 
-TypeScript
 ```
 interface Product {
   id: number;
@@ -134,3 +135,5 @@ function updateStockLevel(
   };
 }
 ```
+
+</details>
