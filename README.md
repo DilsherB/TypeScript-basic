@@ -90,3 +90,47 @@ Type aliases excel at defining custom union types and primitives, whereas interf
 <details><summary> <b>Answer:</b></summary>
 -1 targets the end of an array in .splice(), leading to unintended data corruption. Optional chaining (?.) safely short-circuits when properties are undefined, and nullish coalescing (??) provides robust fallback defaults.
 </details>
+
+## Part 2: Practical Coding Challenge (updateStockLevel)
+
+### Scenario: Build a strictly typed inventory management service.
+
+TypeScript
+```
+interface Product {
+  id: number;
+  name: string;
+  stock: number;
+  category?: string;
+}
+
+interface ApiResponse<T> {
+  success: boolean;
+  message: string;
+  data: T;
+}
+
+function updateStockLevel(
+  products: Product[],
+  productId: number,
+  qtyChange: number
+): ApiResponse<Product undefined |> {
+  let productToUpdate = products.find((product) => product.id === productId);
+  
+  if (!productToUpdate) {
+    return {
+      success: false,
+      message: "Product not found",
+      data: undefined,
+    };
+  }
+
+  productToUpdate.stock += qtyChange;
+  
+  return {
+    success: true,
+    message: "Product updated successfully",
+    data: productToUpdate,
+  };
+}
+```
