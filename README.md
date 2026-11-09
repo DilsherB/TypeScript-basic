@@ -37,6 +37,7 @@ function deleteTaskById(
     : { deletedTask: tasks.splice(indexToDelete, 1), tasks, indexToDelete };
 }
 ```
+</details>
 <details>
 <summary><b>Problem 2: Using <code>Partial<T></code> with <code>Object.assign(target, patch)</code></b></summary>
 
