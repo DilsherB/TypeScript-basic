@@ -95,7 +95,7 @@ The -1 targets the end of an array in .splice(), leading to unintended data corr
 
 ### Scenario: Build a strictly typed inventory management service.
 <details> <summary><b>Solution: </b></summary>
-## TypeScript
+TypeScript
 
 ```
 interface Product {
