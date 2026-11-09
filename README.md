@@ -78,8 +78,8 @@ function updateInventoryItem(
 ## Part 1: Theoretical Questions
 
 ### Interfaces vs. Type Aliases & Utility Types
-<details><summary>
+
 Question: What is the key difference between an interface and a type alias, and how do utility types like Partial<T> and Omit<T, K> keep codebases DRY?
-</summary>
-Answer: Type aliases excel at defining custom union types and primitives, whereas interfaces act as blueprints for object shapes and support declaration merging. Utility types prevent code duplication by dynamically transforming existing types rather than manually declaring duplicate interfaces for creation or update payloads.
+<details><summary> Answer:</summary>
+Type aliases excel at defining custom union types and primitives, whereas interfaces act as blueprints for object shapes and support declaration merging. Utility types prevent code duplication by dynamically transforming existing types rather than manually declaring duplicate interfaces for creation or update payloads.
 </details>
