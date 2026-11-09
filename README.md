@@ -24,7 +24,8 @@ When using `.findIndex()` to locate an item by ID, if the ID does not exist in t
 ### The Solution
 Implement a strict boundary check (`if (indexToDelete === -1)`) before executing `.splice()`, returning a structured response or handling the missing ID explicitly.
 
-```typescript
+```
+typescript
 function deleteTaskById(
   tasks: Task[],
   id: number
@@ -35,3 +36,25 @@ function deleteTaskById(
     ? { deletedTask: [], tasks, indexToDelete: id } // Safe fallback returning user's searched ID
     : { deletedTask: tasks.splice(indexToDelete, 1), tasks, indexToDelete };
 }
+```
+<details>
+<summary><b>Problem 2: Using <code>Partial<T></code> with <code>Object.assign(target, patch)</code></b></summary>
+
+### The Problem
+When using `.findIndex()` to locate an item by ID, if the ID does not exist in the array, it returns `-1`. Passing `-1` directly into `.splice(-1, 1)` causes JavaScript/TypeScript to treat `-1` as an offset from the *end* of the array—accidentally deleting your **very last task** instead of failing safely.
+
+### The Solution
+Implement a strict boundary check (`if (indexToDelete === -1)`) before executing `.splice()`, returning a structured response or handling the missing ID explicitly.
+
+```typescript
+function deleteTaskById(
+  tasks: Task[],
+  id: number
+): { deletedTask: Task[]; tasks: Task[]; indexToDelete: number } {
+  const indexToDelete = tasks.findIndex((task) => task.id === id);
+
+  return indexToDelete === -1
+    ? { deletedTask: [], tasks, indexToDelete: id } // Safe fallback returning user's searched ID
+    : { deletedTask: tasks.splice(indexToDelete, 1), tasks, indexToDelete };
+}```
+
